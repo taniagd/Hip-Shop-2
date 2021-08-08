@@ -43,8 +43,8 @@ public class Member{
 	@Column(length = 30, unique = true)
 	private String username;
 	
-	@Column(length = 30)
-	private String branch; 
+	
+	private HipHopBranch branch; 
 	
 	@Column(nullable = false, columnDefinition = "VARCHAR(15) default 'USER'")
 	private String role;
@@ -206,6 +206,15 @@ public class Member{
 				+ phoneNumber + ", username=" + username + ", role=" + role + ", cards=" + cards + ", following="
 				+ following + ", favorite=" + favorite + ", products=" + products + "]";
 	}
+
+	public HipHopBranch getBranch() {
+		return branch;
+	}
+
+	public void setBranch(HipHopBranch branch) {
+		this.branch = branch;
+	}
+	
 	
 	
 

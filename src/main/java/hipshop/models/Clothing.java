@@ -21,7 +21,7 @@ public class Clothing implements ProductType{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
+	private String productName;
 	@Column(precision = 8, scale = 2)
 	private BigDecimal price;
 
@@ -32,8 +32,10 @@ public class Clothing implements ProductType{
 	private String size;
 
 	private Integer quantity;
+	
 	private String gender;
-	private float weigth;
+	
+	private ClothingType type;
 	
 	@OneToMany(mappedBy="cloth")
 	@JsonManagedReference
@@ -42,9 +44,9 @@ public class Clothing implements ProductType{
 	public Clothing() {
 	}
 
-	public Clothing(String name, BigDecimal price) {
+	public Clothing(String productName, BigDecimal price) {
 		super();
-		this.name = name;
+		this.productName = productName;
 		this.price = price;
 	}
 
@@ -56,12 +58,12 @@ public class Clothing implements ProductType{
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPruductName(String name) {
+		this.productName = name;
 	}
 
 	public BigDecimal getPrice() {
@@ -112,14 +114,6 @@ public class Clothing implements ProductType{
 		this.gender = gender;
 	}
 
-	public float getWeigth() {
-		return weigth;
-	}
-
-	public void setWeigth(float weigth) {
-		this.weigth = weigth;
-	}
-
 	public List<ClothingImage> getClothingImages() {
 		return clothingImages;
 	}
@@ -129,6 +123,11 @@ public class Clothing implements ProductType{
 	}
 	
 	
+	
+	public void setType(ClothingType type) {
+		this.type = type;
+	}
+
 	@Override
 	public String getType() {
 		return this.getClass().getSimpleName();

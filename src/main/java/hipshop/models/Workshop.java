@@ -20,7 +20,7 @@ public class Workshop implements ProductType{
 	@SequenceGenerator(name = "product_sequence", sequenceName = "product_sequence", initialValue = 1, allocationSize = 1)
 	private Long id;
 	
-	private String name;
+	private String productName;
 
 	private BigDecimal price;
 	
@@ -31,8 +31,8 @@ public class Workshop implements ProductType{
 	public Workshop() {
 	}
 
-	public Workshop(final String name,final BigDecimal price) {
-		this.name = name;
+	public Workshop(final String productName,final BigDecimal price) {
+		this.productName = productName;
 		this.price = price;
 	}
 
@@ -44,12 +44,12 @@ public class Workshop implements ProductType{
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String name) {
+		this.productName = name;
 	}
 
 	public BigDecimal getPrice() {
