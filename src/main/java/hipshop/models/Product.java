@@ -52,9 +52,10 @@ public class Product {
 
 	}
 
-	public Product(ProductType product, Member vendor) {
+	public Product(ProductType product, Member vendor, HipHopBranch branch) {
 		this.product = product;
 		this.vendor = vendor;
+		this.branch = branch;
 	}
 
 	public Long getId() {

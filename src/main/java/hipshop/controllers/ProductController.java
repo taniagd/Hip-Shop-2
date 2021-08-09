@@ -58,7 +58,7 @@ public class ProductController {
 		return productService.getProductsByBranch(name);
 	}
 	/*
-	 * Get by branch of hip hop
+	 * Get by type of cloth
 	 * Hoodies, TShirt, Shoes
 	 * 0        1       2   
 	 */

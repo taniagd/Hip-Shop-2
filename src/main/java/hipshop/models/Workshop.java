@@ -13,6 +13,8 @@ import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 import javax.print.attribute.standard.DateTimeAtCompleted;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Workshop implements ProductType{
 
@@ -27,8 +29,8 @@ public class Workshop implements ProductType{
 	private String image;
 
 	private BigDecimal price;
-	
-	private DateTimeAtCompleted date;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+	private Date date;
 	
 	private String location;
 
@@ -65,11 +67,11 @@ public class Workshop implements ProductType{
 	}
 	
 
-	public DateTimeAtCompleted getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(DateTimeAtCompleted date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

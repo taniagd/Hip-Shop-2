@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,8 +32,9 @@ public class WorkshopController {
 		return workshopService.getWorkshop();
 	}
 	@PostMapping
+	@PreAuthorize("hasAuthority('VENDOR')")
 	public Workshop saveWorkshop(@RequestBody Workshop user) {
-			return workshopService.saveWorkshop(user);
+		return workshopService.saveWorkshop(user);
 	}
 	@GetMapping(path = "/{idWorkshop}")
 	public Optional<Workshop> getUserById(@PathVariable("idWorkshop") Long idVariable){
