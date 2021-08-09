@@ -17,7 +17,7 @@ import hipshop.models.PurchaseOrder;
 import hipshop.services.PurchaseOrderService;
 
 @RestController
-@RequestMapping("/purchaseOrder")
+@RequestMapping("/purchaseorder")
 public class PurchaseOrderController {
 
 	@Autowired
@@ -43,6 +43,11 @@ public class PurchaseOrderController {
 		}else {
 			return "No se pudo eliminar la orden de compra";
 		}
+	}
+	
+	@GetMapping("/buy")
+	public PurchaseOrder buyItems(@RequestParam(value = "products", defaultValue="")String products){
+		return purchaseOrderService.buyItems(products); 
 	}
 	
 	@GetMapping("/query")
