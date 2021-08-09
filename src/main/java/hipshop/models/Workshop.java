@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 import javax.print.attribute.standard.DateTimeAtCompleted;
 
@@ -20,7 +21,10 @@ public class Workshop implements ProductType{
 	@SequenceGenerator(name = "product_sequence", sequenceName = "product_sequence", initialValue = 1, allocationSize = 1)
 	private Long id;
 	
-	private String name;
+	private String productName;
+	
+	@Lob
+	private String image;
 
 	private BigDecimal price;
 	
@@ -31,8 +35,8 @@ public class Workshop implements ProductType{
 	public Workshop() {
 	}
 
-	public Workshop(final String name,final BigDecimal price) {
-		this.name = name;
+	public Workshop(final String productName,final BigDecimal price) {
+		this.productName = productName;
 		this.price = price;
 	}
 
@@ -44,12 +48,12 @@ public class Workshop implements ProductType{
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String name) {
+		this.productName = name;
 	}
 
 	public BigDecimal getPrice() {
@@ -82,4 +86,13 @@ public class Workshop implements ProductType{
 		return this.getClass().getSimpleName();
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
 }
