@@ -20,7 +20,8 @@ public class PurchaseOrder {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Float total;
+	@Column(precision = 8, scale = 2)
+	private BigDecimal total;
 	
 	@ManyToOne
 	private Member user;
@@ -43,7 +44,7 @@ public class PurchaseOrder {
 	
 	
 
-	public PurchaseOrder(Float total, Member user) {
+	public PurchaseOrder(BigDecimal total, Member user) {
 		super();
 		this.total = total;
 		this.user = user;
@@ -51,7 +52,7 @@ public class PurchaseOrder {
 
 
 
-	public PurchaseOrder(Float total, Member user, List<PurchaseOrderItem> purchaseOrderItem, String address) {
+	public PurchaseOrder(BigDecimal total, Member user, List<PurchaseOrderItem> purchaseOrderItem, String address) {
 		super();
 		this.total = total;
 		this.user = user;
@@ -71,11 +72,11 @@ public class PurchaseOrder {
 		this.id = id;
 	}
 
-	public Float getTotal() {
+	public BigDecimal getTotal() {
 		return total;
 	}
 
-	public void setTotal(Float total) {
+	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
 

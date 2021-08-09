@@ -38,7 +38,6 @@ public class PurchaseOrderItem {
 	
 	
 	public PurchaseOrderItem(PurchaseOrder orderId, Product productId, BigDecimal price) {
-		super();
 		this.orderId = orderId;
 		this.productId = productId;
 		this.price = price;

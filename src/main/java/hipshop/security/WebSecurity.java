@@ -61,6 +61,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 			.authorizeRequests().antMatchers("/user/vendor").permitAll().and()
 			//.authorizeRequests().antMatchers("/workshop").permitAll().and()
 			.authorizeRequests().antMatchers("/clothing").permitAll().and()
+			.authorizeRequests().antMatchers("/purchaseorder/**").permitAll().and()
 			.authorizeRequests().antMatchers("/album").permitAll().and()
 			.authorizeRequests().antMatchers("/workshop/**").permitAll()
 			//.authorizeRequests().antMatchers(HttpMethod.POST, "/users/").hasAuthority("ADMIN")
