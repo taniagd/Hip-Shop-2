@@ -27,8 +27,8 @@ public class AlbumService {
 		String image = album.getImage();
 		
 		if(productName != null && price !=null && image !=null) { 
-			Product product = new Product(album, vendor);
-			return albumRepository.save(album);
+			//Product product = new Product(album, );
+			//return albumRepository.save(album);
 		}
 		return album;
 	}
