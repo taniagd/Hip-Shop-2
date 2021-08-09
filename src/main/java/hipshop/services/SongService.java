@@ -50,6 +50,6 @@ public class SongService {
 		}
 	}
 	public ArrayList<Song> getUsersBySongName(String songName){
-		return songRepository.findByName(songName);
+		return songRepository.findBySongName(songName);
 	}
 }

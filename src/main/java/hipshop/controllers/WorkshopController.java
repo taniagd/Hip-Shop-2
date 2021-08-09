@@ -48,8 +48,5 @@ public class WorkshopController {
 		}
 	}
 	
-	@GetMapping("/query")
-	public ArrayList<Workshop> getUsersByName(@RequestParam(value = "name", defaultValue="")String name){
-		return workshopService.findByName(name); 
-	}
+
 }
