@@ -11,7 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.print.attribute.standard.DateTimeAtCompleted;
+
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -29,7 +33,8 @@ public class Workshop implements ProductType{
 	private String image;
 
 	private BigDecimal price;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy", timezone = "UTC")
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	
 	private String location;

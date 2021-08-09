@@ -36,19 +36,13 @@ public class WorkshopController {
 	public Workshop saveWorkshop(@RequestBody Workshop user) {
 		return workshopService.saveWorkshop(user);
 	}
+	
+	
 	@GetMapping(path = "/{idWorkshop}")
 	public Optional<Workshop> getUserById(@PathVariable("idWorkshop") Long idVariable){
 		return workshopService.getUserById(idVariable);
 	}
-	@DeleteMapping(path = "/{idWorkshop}")
-	public String deleteWorkshop(@PathVariable("idWorkshop")Long id) {
-		boolean ok = workshopService.deleteWorkshop(id);
-		if(ok) {
-			return "Se eliminó ";
-		}else {
-			return "No se pudo eliminar ";
-		}
-	}
+
 	
 
 }

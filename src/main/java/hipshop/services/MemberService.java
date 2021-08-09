@@ -136,6 +136,7 @@ public class MemberService implements UserDetailsService {
 			return getVendors();
 		}
 		
+		
 		return memberRepository.findByBranch(hipHopBranch);
 	}
 	

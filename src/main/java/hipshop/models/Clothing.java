@@ -19,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Clothing implements ProductType{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_sequence")
+	@SequenceGenerator(name = "product_sequence", sequenceName = "product_sequence", initialValue = 1, allocationSize = 1)
 	private Long id;
 
 	private String productName;
@@ -36,7 +37,7 @@ public class Clothing implements ProductType{
 	
 	private String gender;
 	
-	private ClothingType type;
+	private ClothingType typeClothing;
 	
 	@Lob
 	private String image;
@@ -44,10 +45,10 @@ public class Clothing implements ProductType{
 	public Clothing() {
 	}
 
-	public Clothing(String productName, BigDecimal price) {
-		super();
+	public Clothing(String productName, BigDecimal price, ClothingType typeClothing) {
 		this.productName = productName;
 		this.price = price;
+		this.typeClothing = typeClothing;
 	}
 
 	public Long getId() {
@@ -124,8 +125,25 @@ public class Clothing implements ProductType{
 	
 	
 	
-	public void setType(ClothingType type) {
-		this.type = type;
+	public void setTypeClothing(ClothingType type) {
+		this.typeClothing = type;
+	}
+	
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public ClothingType getTypeClothing() {
+		return typeClothing;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	@Override
