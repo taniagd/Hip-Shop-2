@@ -44,6 +44,8 @@ public class Product {
 	@ManyToOne
 	@JsonBackReference
 	private Member vendor;
+	
+	private HipHopBranch branch;
 
 
 	public Product() {
@@ -77,6 +79,14 @@ public class Product {
 
 	public void setVendor(Member vendor) {
 		this.vendor = vendor;
+	}
+
+	public HipHopBranch getBranch() {
+		return branch;
+	}
+
+	public void setBranch(HipHopBranch branch) {
+		this.branch = branch;
 	}
 
 

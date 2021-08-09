@@ -17,8 +17,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import hipshop.models.Card;
+import hipshop.models.HipHopBranch;
 import hipshop.models.Member;
 import hipshop.repositories.MemberRepository;
 
@@ -115,6 +117,26 @@ public class MemberService implements UserDetailsService {
 	 */
 	public ArrayList<Member> getUserByName(String firstName){
 		return memberRepository.findByFirstName(firstName);
+	}
+	
+	/*
+	 * 
+	 */
+	public ArrayList<Member> getVendorsByBranch(String name){
+		HipHopBranch hipHopBranch = null;
+		if(name.contentEquals("RapFreestyle")) {
+			hipHopBranch = HipHopBranch.RapFreestyle;
+		}else if(name.contentEquals("Breaking")){
+			hipHopBranch = HipHopBranch.Breaking;
+		}else if(name.contentEquals("DjBeatmakers")) {
+			hipHopBranch = HipHopBranch.DJBeatmaker;
+		}else if(name.contentEquals("Graffiti")) {
+			hipHopBranch = HipHopBranch.Graffiti;
+		}else {
+			return getVendors();
+		}
+		
+		return memberRepository.findByBranch(hipHopBranch);
 	}
 	
 	/*

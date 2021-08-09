@@ -53,7 +53,12 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 			.csrf().disable()  // desactivar el csrf xq no hicimos el frontend en java 
 			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL).permitAll().and()
 			.authorizeRequests().antMatchers(HttpMethod.POST, "/user").permitAll().and()
-			.authorizeRequests().antMatchers(HttpMethod.GET, "/user").permitAll()
+			.authorizeRequests().antMatchers("/product").permitAll().and()
+			.authorizeRequests().antMatchers("/product/query").permitAll().and()
+			.authorizeRequests().antMatchers("/product/branch").permitAll().and()
+			.authorizeRequests().antMatchers("/product/clothing").permitAll().and()
+			.authorizeRequests().antMatchers(HttpMethod.GET, "/user").permitAll().and()
+			.authorizeRequests().antMatchers("/user/vendor").permitAll()
 			//.authorizeRequests().antMatchers(HttpMethod.POST, "/users/").hasAuthority("ADMIN")
 			.anyRequest().authenticated().and()
 				.addFilter(new JWTAuthenticationFilter(authenticationManager()))

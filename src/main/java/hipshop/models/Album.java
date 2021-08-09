@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -27,6 +28,7 @@ public class Album implements ProductType {
 	private String productName;
 	@Column(precision = 8, scale = 2, nullable = false)
 	private BigDecimal price;
+	@Lob
 	private String image;
 	
 	@OneToMany(mappedBy="album")

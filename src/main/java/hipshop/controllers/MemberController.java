@@ -62,6 +62,7 @@ public class MemberController {
 	
 	@PostMapping
 	public Member saveUser(@RequestBody Member member) {
+		member.setRole("USER");
 		member.setPassword(bCryptPasswordEncoder.encode(member.getPassword()));
 		return memberService.saveUser(member);
 	}
@@ -89,4 +90,12 @@ public class MemberController {
 		return memberService.getUserByName(name); 
 	}
 	
+	/*
+	 * Get vendor based on a hip hop branch 
+	 * 
+	 */
+	@GetMapping("/vendor")
+	public ArrayList<Member> getVendorsByBranch(@RequestParam(value="branch") String name){
+		return memberService.getVendorsByBranch(name);
+	}
 }

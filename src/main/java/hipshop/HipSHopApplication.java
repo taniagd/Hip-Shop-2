@@ -59,8 +59,35 @@ public class HipSHopApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		System.out.println("Starting...");
 		
-
+		/*BigDecimal precio = new BigDecimal("10");
 		
+		Album album1 = new Album("First name album", precio);
+		
+		Clothing clothe1 = new Clothing("First name Cloth",precio);
+		
+		Workshop service1 = new Workshop("First name service", precio);
+		
+		Song song1 = new Song("Song 1", album1);
+		Song song2 = new Song("Song 2", album1);
+		Song song3 = new Song("Song 3", album1);
+		
+		
+		Member vendor1 = userRepository.findById(2L).get();
+		Member vendor2 = userRepository.findById(3L).get();
+		Member vendor3 = userRepository.findById(4L).get();
+		
+		
+		Product product1 = new Product(album1, vendor1);
+		Product product2 = new Product(clothe1, vendor2);
+		Product product3 = new Product(service1, vendor3);
+		productRepository.save(product1);
+		productRepository.save(product2);
+		productRepository.save(product3);
+		
+		songRepository.save(song1);
+		songRepository.save(song2);
+		songRepository.save(song3);
+		*/
 		
 		/*BigDecimal precio = new BigDecimal("10");
 		
