@@ -8,5 +8,5 @@ import hipshop.models.Song;
 
 public interface SongRepository extends CrudRepository<Song, Long> {
 
-	public abstract ArrayList<Song> findByName(String songName);
+	public abstract ArrayList<Song> findBySongName(String songName);
 }

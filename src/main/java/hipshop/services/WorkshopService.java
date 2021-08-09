@@ -28,10 +28,6 @@ public class WorkshopService {
 		return workshopRepository.findById(id);
 	}
 	
-	public ArrayList<Workshop> findByName(String name){
-		return workshopRepository.findByName(name);
-	}
-	
 	
 	public boolean deleteWorkshop(Long id) {
 		
