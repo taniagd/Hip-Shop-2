@@ -31,9 +31,8 @@ public class Album implements ProductType {
 	@Lob
 	private String image;
 	
-	@OneToMany(mappedBy="album")
-	@JsonManagedReference
-	private List<Song> songs;
+	@Lob
+	private String songs;
 
 	public Album() {
 	}
@@ -44,7 +43,7 @@ public class Album implements ProductType {
 	}
 	
 
-	public Album(Long id, String productName, BigDecimal price, String image, List<Song> songs) {
+	public Album(Long id, String productName, BigDecimal price, String image, String songs) {
 		super();
 		this.id = id;
 		this.productName = productName;
@@ -90,11 +89,11 @@ public class Album implements ProductType {
 		return this.getClass().getSimpleName();
 	}
 
-	public List<Song> getSongs() {
+	public String getSongs() {
 		return songs;
 	}
 
-	public void setSongs(List<Song> songs) {
+	public void setSongs(String songs) {
 		this.songs = songs;
 	}
 
