@@ -16,7 +16,7 @@ public class WorkshopService {
 	@Autowired
 	WorkshopRepository workshopRepository;
 	
-	public ArrayList<Workshop> getUsers() {
+	public ArrayList<Workshop> getWorkshop() {
 		return (ArrayList<Workshop>) workshopRepository.findAll();
 	}
 	
@@ -28,8 +28,12 @@ public class WorkshopService {
 		return workshopRepository.findById(id);
 	}
 	
+	public ArrayList<Workshop> findByName(String name){
+		return workshopRepository.findByName(name);
+	}
 	
-	public boolean deleteVendor(Long id) {
+	
+	public boolean deleteWorkshop(Long id) {
 		
 		
 		try {
