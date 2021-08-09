@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 import javax.print.attribute.standard.DateTimeAtCompleted;
 
@@ -21,6 +22,9 @@ public class Workshop implements ProductType{
 	private Long id;
 	
 	private String productName;
+	
+	@Lob
+	private String image;
 
 	private BigDecimal price;
 	
@@ -82,4 +86,13 @@ public class Workshop implements ProductType{
 		return this.getClass().getSimpleName();
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
 }

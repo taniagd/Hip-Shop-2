@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -37,9 +38,8 @@ public class Clothing implements ProductType{
 	
 	private ClothingType type;
 	
-	@OneToMany(mappedBy="cloth")
-	@JsonManagedReference
-	private List<ClothingImage> clothingImages;
+	@Lob
+	private String image;
 
 	public Clothing() {
 	}
@@ -114,12 +114,12 @@ public class Clothing implements ProductType{
 		this.gender = gender;
 	}
 
-	public List<ClothingImage> getClothingImages() {
-		return clothingImages;
+	public String getClothingImages() {
+		return image;
 	}
 
-	public void setClothingImages(List<ClothingImage> clothingImages) {
-		this.clothingImages = clothingImages;
+	public void setClothingImages(String clothingImages) {
+		this.image = clothingImages;
 	}
 	
 	
