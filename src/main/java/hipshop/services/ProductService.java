@@ -1,6 +1,7 @@
 package hipshop.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class ProductService {
 	
 	public ArrayList<Product> getProducts(){
 		return (ArrayList<Product>) productRepository.findAll();
+	}
+	
+	public Optional<Product> getProductById(Long id){
+		return productRepository.findById(id);
 	}
 	
 	public ArrayList<Product> getProductsByBranch(String name){

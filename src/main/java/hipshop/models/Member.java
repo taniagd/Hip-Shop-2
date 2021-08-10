@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,8 +27,6 @@ public class Member{
 	@Column(length = 100)
 	private String lastName;
 
-	private Date dateBirth;
-
 	@Column(length = 100)
 	private String address;
 
@@ -43,6 +42,8 @@ public class Member{
 	@Column(length = 30, unique = true)
 	private String username;
 	
+	@Lob
+	private String image;
 	
 	private HipHopBranch branch; 
 	
@@ -73,12 +74,11 @@ public class Member{
 		this.firstName = firstName;
 	}
 
-	public Member(String firstName, String lastName, Date dateBirth, String address, String email, String password,
+	public Member(String firstName, String lastName, String address, String email, String password,
 			String phoneNumber, String username, List<Card> cards) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dateBirth = dateBirth;
 		this.address = address;
 		this.email = email;
 		this.password = password;
@@ -109,14 +109,6 @@ public class Member{
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public Date getDateBirth() {
-		return dateBirth;
-	}
-
-	public void setDateBirth(Date dateBirth) {
-		this.dateBirth = dateBirth;
 	}
 
 	public String getAddress() {
@@ -199,20 +191,20 @@ public class Member{
 		this.products = products;
 	}
 
-	@Override
-	public String toString() {
-		return "Member [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dateBirth=" + dateBirth
-				+ ", address=" + address + ", email=" + email + ", password=" + password + ", phoneNumber="
-				+ phoneNumber + ", username=" + username + ", role=" + role + ", cards=" + cards + ", following="
-				+ following + ", favorite=" + favorite + ", products=" + products + "]";
-	}
-
 	public HipHopBranch getBranch() {
 		return branch;
 	}
 
 	public void setBranch(HipHopBranch branch) {
 		this.branch = branch;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	

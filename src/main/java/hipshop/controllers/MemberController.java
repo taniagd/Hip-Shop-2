@@ -62,8 +62,6 @@ public class MemberController {
 	
 	@PostMapping
 	public Member saveUser(@RequestBody Member member) {
-		member.setRole("USER");
-		member.setPassword(bCryptPasswordEncoder.encode(member.getPassword()));
 		return memberService.saveUser(member);
 	}
 	
