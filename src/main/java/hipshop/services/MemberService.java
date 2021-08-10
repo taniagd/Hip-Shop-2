@@ -62,6 +62,8 @@ public class MemberService implements UserDetailsService {
 		String username = user.getUsername();
 		String role = user.getRole();
 		
+		System.out.println("SERVICE");
+		
 		Member usernameAvaliability = memberRepository.findByUsername(username);
 		
 		if(usernameAvaliability != null && usernameAvaliability.getUsername().contentEquals(username)) {

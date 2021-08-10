@@ -48,7 +48,11 @@ public class Workshop implements ProductType{
 	}
 
 	public Workshop(String productName, String image, BigDecimal price, Date date, String location) {
-		// TODO Auto-generated constructor stub
+		this.productName = productName;
+		this.image = image;
+		this.price = price;
+		this.date = date;
+		this.location = location;
 	}
 
 	public Long getId() {
@@ -104,6 +108,6 @@ public class Workshop implements ProductType{
 	public void setImage(String image) {
 		this.image = image;
 	}
-
+	
 	
 }

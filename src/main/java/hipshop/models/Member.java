@@ -73,6 +73,15 @@ public class Member{
 		super();
 		this.firstName = firstName;
 	}
+	
+	
+
+	public Member(String password,  String username, HipHopBranch branch, String role) {
+		this.password = password;
+		this.username = username;
+		this.branch = branch;
+		this.role = role;
+	}
 
 	public Member(String firstName, String lastName, String address, String email, String password,
 			String phoneNumber, String username, List<Card> cards) {

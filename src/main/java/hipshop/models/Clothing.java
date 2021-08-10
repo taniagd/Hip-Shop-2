@@ -53,7 +53,15 @@ public class Clothing implements ProductType{
 
 	public Clothing(String productName, BigDecimal price, String sku, String color, String size, Integer quantity,
 			String gender, ClothingType typeclothing, String image) {
-		// TODO Auto-generated constructor stub
+		this.productName = productName;
+		this.price = price;
+		this.sku =sku;
+		this.color = color;
+		this.size = size;
+		this.quantity = quantity;
+		this.gender = gender;
+		this.typeClothing = typeclothing;
+		this.image = image;
 	}
 
 	public Long getId() {
