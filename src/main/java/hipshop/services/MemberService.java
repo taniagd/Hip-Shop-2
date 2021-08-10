@@ -16,6 +16,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,10 +31,11 @@ import hipshop.repositories.MemberRepository;
 public class MemberService implements UserDetailsService {
 	
 	@Autowired
-	MemberRepository memberRepository;
-	
-	public MemberService(MemberRepository memberRepository) {
+	private MemberRepository memberRepository;
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	public MemberService(MemberRepository memberRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.memberRepository = memberRepository;
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	
 	/*
@@ -53,7 +55,6 @@ public class MemberService implements UserDetailsService {
 	public Member saveUser(Member user) {
 		String firstName = user.getFirstName();
 		String lastName = user.getLastName();
-		Date dateBirth = user.getDateBirth();
 		String address = user.getAddress();
 		String email = user.getEmail();
 		String password = user.getPassword();
@@ -66,9 +67,7 @@ public class MemberService implements UserDetailsService {
 		if(usernameAvaliability != null && usernameAvaliability.getUsername().contentEquals(username)) {
 			return user;
 		}else if(username != null && password != null) {
-			if(role == null) {
-				role = "USER";
-			}
+			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 			return memberRepository.save(user);
 		}else {			
 			return user;

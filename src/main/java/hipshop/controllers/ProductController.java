@@ -66,7 +66,17 @@ public class ProductController {
 	public ArrayList<Clothing> getClothesByType(@RequestParam(value = "type", defaultValue="") String name){
 		return clothingService.getClothesByType(name);
 	}
+	/*
+	 * Get by type of cloth
+	 * Hoodies, TShirt, Shoes
+	 * 0        1       2   
+	 */
+	@GetMapping(path = "/{id}")
+	public Optional<Product> getProductById(@PathVariable("id") Long id){
+		return productService.getProductById(id);
+	}
 	
+
 	
 	@GetMapping("/vendor")
 	@PreAuthorize("hasAuthority('VENDOR')")
