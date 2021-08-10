@@ -1,6 +1,7 @@
 package hipshop;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import hipshop.models.Album;
 import hipshop.models.Card;
 import hipshop.models.Clothing;
+import hipshop.models.ClothingType;
 import hipshop.models.Favorite;
 import hipshop.models.Following;
+import hipshop.models.HipHopBranch;
 import hipshop.models.Product;
 import hipshop.models.PurchaseOrder;
 import hipshop.models.PurchaseOrderItem;
@@ -58,6 +61,68 @@ public class HipSHopApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Starting...");
+		
+		BigDecimal precio = new BigDecimal("100");
+		Date fecha = new Date();
+		Workshop serviceOne = new Workshop ("Rap y derechos", "https://elniniorizoma.files.wordpress.com/2016/02/12746591_10153962927037002_551030463_n-11.jpg", precio , fecha , "Ciudad de México");
+		Product product = new Product(serviceOne, member, HipHopBranch.RapFreestyle);
+		productRepository.save(product);
+		
+		BigDecimal precio1 = new BigDecimal ("150");
+		Date fecha1 = new Date();
+		Workshop serviceTwo = new Workshop ("Poesía y rap femenil", "https://rapfeminista.files.wordpress.com/2018/05/31841498_1511154082344324_2930540199916077056_n.jpg?w=640", precio1 , fecha1, "Faro Tláhuac");
+		Product product1 = new Product(serviceTwo, member, HipHopBranch.RapFreestyle);
+		productRepository.save(product1);
+		
+		BigDecimal precio2 = new BigDecimal ("500");
+		Date fecha2 = new Date();
+		Workshop serviceThree = new Workshop ("Freedom on the mic", "https://get.google.com/albumarchive/104995706740150662008/album/AF1QipPGeo5K46fpYv8RUVI2NC6c0N8L3TUSR-7ZZWCj/AF1QipM7l-y40a-72vM7d5JnKSoWIOaYzDlZGeA8y3TJ?hl=es", precio2 , fecha2, "Evento virtual para todo el mundo");
+		Product product2 = new Product(serviceThree, member, HipHopBranch.RapFreestyle);
+		productRepository.save(product2);
+		
+		
+		BigDecimal precio3 = new BigDecimal ("370");
+		Integer cantidad = 30;
+		Clothing clothOne = new Clothing ("Playera", precio3, "123ksifdos", "#000", "mediana", cantidad , "unisex", ClothingType.TShirt, "https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+		Product product3 = new Product(clothOne, member, HipHopBranch.Graffiti);
+		productRepository.save(product3);
+		
+		
+		BigDecimal precio4 = new BigDecimal ("470");
+		Integer cantidad1 = 15;
+		Clothing clothTwo = new Clothing ("Conjunto casual", precio4, "grs873", "#ff8000", "chico", cantidad1, "unisex", ClothingType.Hoodies, "https://images.pexels.com/photos/7969702/pexels-photo-7969702.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+		Product product4 = new Product(clothTwo, member, HipHopBranch.Breaking);
+		productRepository.save(product4);
+		
+		BigDecimal precio5 = new BigDecimal ("385");
+		Integer cantidad2 = 22;
+		Clothing clothThree = new Clothing ("Conjunto casual",precio5, "pls986", "#9b9b9b", "grande", cantidad2, "unisex", ClothingType.TShirt, "https://images.pexels.com/photos/4734656/pexels-photo-4734656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+		Product product5 = new Product(clothThree, member, HipHopBranch.DJBeatmaker);
+		productRepository.save(product5);
+		
+		BigDecimal precio6 = new BigDecimal ("420");
+		Date fecha3 = new Date();
+		Workshop serviceFour = new Workshop ("Taller de Beatbox", "https://ocioalmeria.es/wp-content/uploads/Taller-de-BeatBox-con-David-Galera.jpg", precio6 , fecha3, "Morelia");
+		Product product6 = new Product(serviceFour, member, HipHopBranch.DJBeatmaker);
+		productRepository.save(product6);
+
+		BigDecimal precio7 = new BigDecimal ("1300");
+		Integer cantidad3 = 8;
+		Clothing clothFour = new Clothing ("Tennis",precio5, "usys97346", "#FFFFFF", "mediano", cantidad3, "unisex", ClothingType.Shoes, "https://images.pexels.com/photos/8028106/pexels-photo-8028106.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+		Product product7 = new Product(clothFour, member, HipHopBranch.Breaking);
+		productRepository.save(product7);
+		
+		BigDecimal precio8 = new BigDecimal ("1300");
+		Integer cantidad4 = 28;
+		Clothing clothFive = new Clothing ("Hoodie con capucha",precio8, "iosjs8846", "#FFFFFF", "chico", cantidad4, "unisex", ClothingType.Hoodies, "https://images.pexels.com/photos/7955541/pexels-photo-7955541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+		Product product8 = new Product(clothFive, member, HipHopBranch.Graffiti);
+		productRepository.save(product8);
+		
+		BigDecimal precio9 = new BigDecimal ("200");
+		Date fecha4 = new Date();
+		Workshop serviceFive = new Workshop ("Taller de Beats", "https://harinerazgz.files.wordpress.com/2019/08/cartel-aitor-2020.jpg", precio9, fecha4, "Zaragoza");
+		Product product9 = new Product(serviceFive, member, HipHopBranch.DJBeatmaker);
+		productRepository.save(product9);
 		
 		/*BigDecimal precio = new BigDecimal("10");
 		

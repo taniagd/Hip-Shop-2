@@ -47,6 +47,10 @@ public class Workshop implements ProductType{
 		this.price = price;
 	}
 
+	public Workshop(String productName, String image, BigDecimal price, Date date, String location) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}
