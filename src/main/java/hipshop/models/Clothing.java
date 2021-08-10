@@ -36,7 +36,7 @@ public class Clothing implements ProductType{
 	private Integer quantity;
 	
 	private String gender;
-	
+
 	private ClothingType typeClothing;
 	
 	@Lob
@@ -49,6 +49,11 @@ public class Clothing implements ProductType{
 		this.productName = productName;
 		this.price = price;
 		this.typeClothing = typeClothing;
+	}
+
+	public Clothing(String productName, BigDecimal price, String sku, String color, String size, Integer quantity,
+			String gender, ClothingType typeclothing, String image) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
